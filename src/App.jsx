@@ -1,6 +1,7 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import MainLayout from "./layout/MainLayout"
 import AddService from "./pages/AddService"
+import EditProducts from "./pages/EditProducts"
 import Home from "./pages/Home"
 import MyService from "./pages/MyService"
 import './style.scss'
@@ -21,6 +22,10 @@ function App() {
         {
           path: '/addservices',
           element: <AddService></AddService>
+        },
+        {
+          path:'/editProducts/:id',
+          element:<EditProducts></EditProducts>
         }
       ]
     }

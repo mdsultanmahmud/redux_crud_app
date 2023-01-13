@@ -1,8 +1,13 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteProducts } from './myServiceSlice';
 
 const MyService = () => {
-    const products = useSelector(state => (state.products))
+    const products = useSelector(state => (state.products.products))
+    const dispatch = useDispatch()
+    const handleDeleteProducts = id =>{
+        dispatch(deleteProducts(id))
+    }
     return (
         <div>
             {
@@ -35,7 +40,7 @@ const MyService = () => {
                                     <td>{quantity}</td>
                                     <td>
                                         <button>Edit</button>
-                                        <button>Delete</button>
+                                        <button onClick={() => handleDeleteProducts(id)}>Delete</button>
                                     </td>
                                 </tr>
                             })

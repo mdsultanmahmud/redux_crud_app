@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { addProducts } from './myServiceSlice';
 
 const AddService = () => {
-    const numberOfProducts = useSelector(state => state.products.length)
+    const numberOfProducts = useSelector(state => state.products.products.length)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     let [name, setName] = useState('')
