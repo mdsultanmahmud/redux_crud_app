@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { deleteProducts } from './myServiceSlice';
 
 const MyService = () => {
@@ -39,7 +40,7 @@ const MyService = () => {
                                     <td>{name}</td>
                                     <td>{quantity}</td>
                                     <td>
-                                        <button>Edit</button>
+                                        <Link to={`/editProducts/${id}`} state={{id, name, quantity}}><button>Edit</button></Link>
                                         <button onClick={() => handleDeleteProducts(id)}>Delete</button>
                                     </td>
                                 </tr>
