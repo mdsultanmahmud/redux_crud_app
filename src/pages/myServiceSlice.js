@@ -4,13 +4,16 @@ const initialProducts = [
     {id: 2, name: 'Mango', quantity: 10},
 ]
 export const myServiceSlice = createSlice({
-    name: 'myService',
+    name: 'products',
     initialState: initialProducts,
     reducers: {
-        showProducts: state => state
+        showProducts: state => state,
+        addProducts: (state, action) =>{
+            state.push(action.payload)
+        }
     }
 
 })
 
-export const {showProducts} =  myServiceSlice.actions
+export const {showProducts, addProducts} =  myServiceSlice.actions
 export default myServiceSlice.reducer
