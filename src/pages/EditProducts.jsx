@@ -1,13 +1,18 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { updateProducts } from './myServiceSlice';
 
 const EditProducts = () => {
     const location = useLocation()
+    const navigate = useNavigate()
     const [name, setName] = useState(location.state.name)
     const [quantity, setQuantity] = useState(location.state.quantity)
+    const dispatch = useDispatch()
     const handleFormSubmit = event =>{
         event.preventDefault()
-        console.log(name, quantity)
+        dispatch(updateProducts({id: location.state.id, name, quantity}))
+        navigate('/myservices')
     }
     return (
         <div>

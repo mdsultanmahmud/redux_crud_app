@@ -5,6 +5,7 @@ import { deleteProducts } from './myServiceSlice';
 
 const MyService = () => {
     const products = useSelector(state => (state.products.products))
+    let numberOfProducts = 1
     const dispatch = useDispatch()
     const handleDeleteProducts = id =>{
         dispatch(deleteProducts(id))
@@ -36,7 +37,7 @@ const MyService = () => {
                             products.map(prod => {
                                 const { id, name, quantity } = prod
                                 return <tr key={id}>
-                                    <td>{id}</td>
+                                    <td>{numberOfProducts++}</td>
                                     <td>{name}</td>
                                     <td>{quantity}</td>
                                     <td>

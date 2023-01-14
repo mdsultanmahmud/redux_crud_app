@@ -2,16 +2,15 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addProducts } from './myServiceSlice';
-
+import { v4 as uuidv4 } from 'uuid';
 const AddService = () => {
-    const numberOfProducts = useSelector(state => state.products.products.length)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     let [name, setName] = useState('')
     let [quantity, setQuantity] = useState()
     const handleFormSubmit = (e) => {
         e.preventDefault()
-        const product = {id: numberOfProducts + 1,name, quantity}
+        const product = {id: uuidv4(),name, quantity}
         dispatch(addProducts(product))
         navigate('/myservices', {replace: true})
     }
